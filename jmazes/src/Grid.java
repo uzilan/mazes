@@ -76,6 +76,10 @@ public class Grid {
                 .collect(Collectors.toList());
     }
 
+    protected String contentsOf(Cell cell) {
+        return " ";
+    }
+
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder("+")
@@ -87,7 +91,7 @@ public class Grid {
             StringBuilder bottom = new StringBuilder("+");
 
             row.stream().forEach(cell -> {
-                String body = "   ";
+                String body = " " + contentsOf(cell) + " ";
                 String eastBoundary = cell.isLinked(cell.getEast()) ? " " : "|";
                 top.append(body).append(eastBoundary);
 
