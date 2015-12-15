@@ -1,9 +1,12 @@
+import util.Utils;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Grid {
 
@@ -83,7 +86,7 @@ public class Grid {
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder("+")
-                .append(stimes("---+", columns))
+                .append(Utils.stimes("---+", columns))
                 .append("\n");
 
         rows().stream().forEach(row -> {
@@ -107,9 +110,48 @@ public class Grid {
         return output.toString();
     }
 
-    private String stimes(String s, int times) {
-        return IntStream.range(0, times)
-                .mapToObj(i -> s)
-                .collect(Collectors.joining());
+    public BufferedImage toImage() {
+        return toImage(10);
+    }
+
+    public BufferedImage toImage(int cellSize) {
+        int imgWidth = cellSize * columns;
+        int imgHeight = cellSize * rows;
+
+        Color background = Color.white;
+        Color wall = Color.black;
+
+        BufferedImage img = new BufferedImage(imgWidth + 1, imgHeight + 1, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2 = img.createGraphics();
+        g2.setPaint(background);
+        g2.fillRect(0, 0, img.getWidth(), img.getHeight());
+
+        g2.setColor(wall);
+
+        cells().forEach(cell -> {
+            int x1 = cell.getColumn() * cellSize;
+            int y1 = cell.getRow() * cellSize;
+            int x2 = (cell.getColumn() + 1) * cellSize;
+            int y2 = (cell.getRow() + 1) * cellSize;
+
+            if (cell.getNorth() == null) {
+                g2.drawLine(x1, y1, x2, y1);
+            }
+
+            if (cell.getWest() == null) {
+                g2.drawLine(x1, y1, x1, y2);
+            }
+
+            if (!cell.isLinked(cell.getEast())) {
+                g2.drawLine(x2, y1, x2, y2);
+            }
+
+            if (!cell.isLinked(cell.getSouth())) {
+                g2.drawLine(x1, y2, x2, y2);
+            }
+        });
+
+        return img;
     }
 }
