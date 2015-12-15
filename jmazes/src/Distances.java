@@ -1,4 +1,9 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import static util.TupleFactory.Tuple2;
+import static util.TupleFactory.createTuple2;
 
 public class Distances {
 
@@ -44,7 +49,7 @@ public class Distances {
         return breadcrumbs;
     }
 
-    public List<Object> max() {
+    public Tuple2<Cell, Integer> max() {
         int maxDistance = 0;
         Cell maxCell = root;
 
@@ -57,6 +62,7 @@ public class Distances {
                 maxDistance = distance;
             }
         }
-        return Arrays.asList(maxCell, maxDistance);
+
+        return createTuple2(maxCell, maxDistance);
     }
 }

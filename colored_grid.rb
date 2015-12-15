@@ -9,9 +9,9 @@ class ColoredGrid < Grid
 
   def background_color_for(cell)
     distance = @distances[cell] or return nil
-    intensity = {@maximum - distance}.to_f / @maximum
+    intensity = (@maximum - distance).to_f / @maximum
     dark = (255 * intensity).round
-    ChunkyPNG::Color.
-
+    bright = 128 + (127 * intensity).round
+    ChunkyPNG::Color.rgb(dark, bright, dark)
   end
 end

@@ -1,4 +1,4 @@
-import java.util.List;
+import static util.TupleFactory.Tuple2;
 
 public class LongestPath {
 
@@ -9,14 +9,14 @@ public class LongestPath {
         Cell start = grid.get(0, 0);
 
         Distances distances = start.distances();
-        List<Object> max = distances.max();
-        Cell newStart = (Cell) max.get(0);
-        int distance = (Integer) max.get(1);
+        Tuple2<Cell, Integer> max = distances.max();
+        Cell newStart = max._1();
+        int distance = max._2();
 
         Distances newDistances = newStart.distances();
-        List<Object> max1 = newDistances.max();
-        Cell goal = (Cell) max1.get(0);
-        distance = (int) max1.get(1);
+        max = newDistances.max();
+        Cell goal = max._1();
+        distance = max._2();
 
         grid.setDistances(newDistances.pathTo(goal).distances());
 
