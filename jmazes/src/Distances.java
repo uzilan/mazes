@@ -21,6 +21,10 @@ public class Distances {
         return cells;
     }
 
+    public Integer getDistance(Cell cell) {
+        return cells.get(cell);
+    }
+
     public void setDistance(Cell cell, int distance) {
         cells.put(cell, distance);
     }

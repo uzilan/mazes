@@ -2,10 +2,8 @@ import util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Grid {
@@ -69,7 +67,15 @@ public class Grid {
         return rows * columns;
     }
 
-    public List<List<Cell>> rows() {
+    public int rows() {
+        return rows;
+    }
+
+    public int columns() {
+        return columns;
+    }
+
+    public List<List<Cell>> rowList() {
         return grid;
     }
 
@@ -83,13 +89,17 @@ public class Grid {
         return " ";
     }
 
+    protected Color backgroundColorFor(Cell cell) {
+        return null;
+    }
+
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder("+")
                 .append(Utils.stimes("---+", columns))
                 .append("\n");
 
-        rows().stream().forEach(row -> {
+        rowList().stream().forEach(row -> {
             StringBuilder top = new StringBuilder("|");
             StringBuilder bottom = new StringBuilder("+");
 
@@ -127,30 +137,39 @@ public class Grid {
         g2.setPaint(background);
         g2.fillRect(0, 0, img.getWidth(), img.getHeight());
 
-        g2.setColor(wall);
+        Arrays.stream(new String[]{"backgrounds", "walls"})
+                .forEach(mode ->
+                        cells().forEach(cell -> {
+                            int x1 = cell.getColumn() * cellSize;
+                            int y1 = cell.getRow() * cellSize;
+                            int x2 = (cell.getColumn() + 1) * cellSize;
+                            int y2 = (cell.getRow() + 1) * cellSize;
 
-        cells().forEach(cell -> {
-            int x1 = cell.getColumn() * cellSize;
-            int y1 = cell.getRow() * cellSize;
-            int x2 = (cell.getColumn() + 1) * cellSize;
-            int y2 = (cell.getRow() + 1) * cellSize;
+                            if (mode.equals("backgrounds")) {
+                                Color color = backgroundColorFor(cell);
+                                if (color != null) {
+                                    g2.setColor(color);
+                                    g2.fillRect(x1, y1, x2, y2);
+                                }
+                            } else {
+                                g2.setColor(wall);
+                                if (cell.getNorth() == null) {
+                                    g2.drawLine(x1, y1, x2, y1);
+                                }
 
-            if (cell.getNorth() == null) {
-                g2.drawLine(x1, y1, x2, y1);
-            }
+                                if (cell.getWest() == null) {
+                                    g2.drawLine(x1, y1, x1, y2);
+                                }
 
-            if (cell.getWest() == null) {
-                g2.drawLine(x1, y1, x1, y2);
-            }
+                                if (!cell.isLinked(cell.getEast())) {
+                                    g2.drawLine(x2, y1, x2, y2);
+                                }
 
-            if (!cell.isLinked(cell.getEast())) {
-                g2.drawLine(x2, y1, x2, y2);
-            }
-
-            if (!cell.isLinked(cell.getSouth())) {
-                g2.drawLine(x1, y2, x2, y2);
-            }
-        });
+                                if (!cell.isLinked(cell.getSouth())) {
+                                    g2.drawLine(x1, y2, x2, y2);
+                                }
+                            }
+                        }));
 
         return img;
     }

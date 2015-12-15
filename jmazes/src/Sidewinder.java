@@ -6,7 +6,7 @@ public class Sidewinder {
 
     public static Grid on(Grid grid) {
         Random random = new Random(System.currentTimeMillis());
-        grid.rows().stream()
+        grid.rowList().stream()
                 .forEach(row -> {
                     List<Cell> run = new ArrayList<>();
 

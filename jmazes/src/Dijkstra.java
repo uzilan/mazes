@@ -11,7 +11,7 @@ public class Dijkstra {
         System.out.println(grid);
 
         System.out.println("path from northwest corner to southwest corner:");
-        grid.setDistances(distances.pathTo(grid.get(grid.rows().size() - 1, 0)).distances());
+        grid.setDistances(distances.pathTo(grid.get(grid.rowList().size() - 1, 0)).distances());
         System.out.println(grid);
     }
 }
