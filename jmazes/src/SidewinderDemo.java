@@ -11,6 +11,6 @@ public class SidewinderDemo {
         System.out.println(grid);
 
         BufferedImage img = grid.toImage();
-        ImageSaver.saveImage(img, "maze.png");
+        ImageSaver.saveImage(img, "jmazes/maze.png");
     }
 }

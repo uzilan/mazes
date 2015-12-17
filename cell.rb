@@ -35,6 +35,7 @@ class Cell
     list << south if south
     list << west if west
     list << east if east
+    list
   end
 
   def distances
