@@ -1,5 +1,7 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.algorithms;
 
+import com.landsmann.mazes.core.Cell;
+import com.landsmann.mazes.core.Grid;
 import com.landsmann.mazes.util.Utils;
 
 import java.util.List;

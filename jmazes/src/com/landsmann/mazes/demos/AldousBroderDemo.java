@@ -1,5 +1,7 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.demos;
 
+import com.landsmann.mazes.algorithms.AldousBroder;
+import com.landsmann.mazes.core.Grid;
 import com.landsmann.mazes.util.ImageSaver;
 
 public class AldousBroderDemo {

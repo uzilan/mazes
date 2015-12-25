@@ -1,4 +1,9 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.demos;
+
+import com.landsmann.mazes.algorithms.BinaryTree;
+import com.landsmann.mazes.core.Cell;
+import com.landsmann.mazes.core.DistanceGrid;
+import com.landsmann.mazes.core.Distances;
 
 public class Dijkstra {
 

@@ -1,4 +1,7 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.algorithms;
+
+import com.landsmann.mazes.core.Cell;
+import com.landsmann.mazes.core.Grid;
 
 import java.util.Random;
 

@@ -1,6 +1,9 @@
 package com.landsmann.mazes.ui;
 
-import com.landsmann.mazes.*;
+import com.landsmann.mazes.algorithms.*;
+import com.landsmann.mazes.core.Cell;
+import com.landsmann.mazes.core.ColoredGrid;
+import com.landsmann.mazes.core.Grid;
 
 import javax.swing.*;
 import java.awt.*;

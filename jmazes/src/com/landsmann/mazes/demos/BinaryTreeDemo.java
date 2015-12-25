@@ -1,4 +1,7 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.demos;
+
+import com.landsmann.mazes.algorithms.BinaryTree;
+import com.landsmann.mazes.core.Grid;
 
 public class BinaryTreeDemo {
 

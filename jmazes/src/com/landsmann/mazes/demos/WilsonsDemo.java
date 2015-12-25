@@ -1,5 +1,7 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.demos;
 
+import com.landsmann.mazes.core.Grid;
+import com.landsmann.mazes.algorithms.Wilsons;
 import com.landsmann.mazes.util.ImageSaver;
 
 import java.awt.image.BufferedImage;

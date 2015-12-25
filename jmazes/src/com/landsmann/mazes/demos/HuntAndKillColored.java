@@ -1,5 +1,8 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.demos;
 
+import com.landsmann.mazes.core.Cell;
+import com.landsmann.mazes.core.ColoredGrid;
+import com.landsmann.mazes.algorithms.HuntAndKill;
 import com.landsmann.mazes.util.ImageSaver;
 
 public class HuntAndKillColored {

@@ -1,4 +1,4 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.core;
 
 import com.landsmann.mazes.util.TupleFactory;
 

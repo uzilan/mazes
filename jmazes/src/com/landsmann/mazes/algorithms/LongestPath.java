@@ -1,4 +1,8 @@
-package com.landsmann.mazes;
+package com.landsmann.mazes.algorithms;
+
+import com.landsmann.mazes.core.Cell;
+import com.landsmann.mazes.core.DistanceGrid;
+import com.landsmann.mazes.core.Distances;
 
 import static com.landsmann.mazes.util.TupleFactory.Tuple2;
 
