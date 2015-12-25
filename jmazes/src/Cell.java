@@ -121,4 +121,10 @@ public class Cell {
     public int getColumn() {
         return column;
     }
+
+    @Override
+    public String toString() {
+        //return Character.toString((char) ((row * 5 + column) + 65));
+        return row + "," + column;
+    }
 }

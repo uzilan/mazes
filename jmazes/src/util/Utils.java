@@ -1,5 +1,7 @@
 package util;
 
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -13,6 +15,12 @@ public class Utils {
         return IntStream.range(0, times)
                 .mapToObj(i -> s)
                 .collect(Collectors.joining());
+    }
+
+    public static <T> T sample(List<T> list) {
+        Random random = new Random(System.currentTimeMillis());
+        int index = random.nextInt(list.size());
+        return list.get(index);
     }
 }
 
