@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class BinaryTree {
 
     public static Grid on(Grid grid) {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random();
         grid.cells().stream()
                 .forEach(cell -> {
                     List<Cell> neighbors = neighbors(cell);

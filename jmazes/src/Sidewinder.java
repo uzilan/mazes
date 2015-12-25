@@ -5,7 +5,7 @@ import java.util.Random;
 public class Sidewinder {
 
     public static Grid on(Grid grid) {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random();
         grid.rowList().stream()
                 .forEach(row -> {
                     List<Cell> run = new ArrayList<>();
@@ -35,7 +35,7 @@ public class Sidewinder {
     }
 
     private static Cell sample(List<Cell> run) {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random();
         int index = random.nextInt(run.size());
         return run.get(index);
     }

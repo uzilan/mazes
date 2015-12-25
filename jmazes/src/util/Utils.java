@@ -18,7 +18,7 @@ public class Utils {
     }
 
     public static <T> T sample(List<T> list) {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random();
         int index = random.nextInt(list.size());
         return list.get(index);
     }

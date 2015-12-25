@@ -6,7 +6,7 @@ public class AldousBroder {
         Cell cell = grid.randomCell();
         int unvisited = grid.size() - 1;
 
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random();
         while (unvisited > 0) {
 
             int index = random.nextInt(cell.neighbors().size());

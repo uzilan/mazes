@@ -57,7 +57,7 @@ public class Grid {
     }
 
     public Cell randomCell() {
-        Random rand = new Random(System.currentTimeMillis());
+        Random rand = new Random();
         int row = rand.nextInt(rows);
         int column = rand.nextInt(columns);
         return get(row, column);
