@@ -1,4 +1,6 @@
-import util.ImageSaver;
+package com.landsmann.mazes;
+
+import com.landsmann.mazes.util.ImageSaver;
 
 import java.util.stream.IntStream;
 

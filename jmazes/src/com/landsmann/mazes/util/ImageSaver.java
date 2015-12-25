@@ -1,4 +1,4 @@
-package util;
+package com.landsmann.mazes.util;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

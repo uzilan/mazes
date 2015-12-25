@@ -1,4 +1,6 @@
-import util.TupleFactory;
+package com.landsmann.mazes;
+
+import com.landsmann.mazes.util.TupleFactory;
 
 import java.awt.*;
 

@@ -1,3 +1,5 @@
+package com.landsmann.mazes;
+
 public class BinaryTreeDemo {
 
     public static void main(String[] args) {

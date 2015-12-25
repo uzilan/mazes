@@ -1,4 +1,6 @@
-import util.Utils;
+package com.landsmann.mazes;
+
+import com.landsmann.mazes.util.Utils;
 
 import java.util.List;
 import java.util.stream.Collectors;

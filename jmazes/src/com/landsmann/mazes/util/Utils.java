@@ -1,4 +1,4 @@
-package util;
+package com.landsmann.mazes.util;
 
 import java.util.List;
 import java.util.Random;

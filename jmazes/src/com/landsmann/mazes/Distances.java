@@ -1,9 +1,11 @@
+package com.landsmann.mazes;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static util.TupleFactory.Tuple2;
-import static util.TupleFactory.createTuple2;
+import static com.landsmann.mazes.util.TupleFactory.Tuple2;
+import static com.landsmann.mazes.util.TupleFactory.createTuple2;
 
 public class Distances {
 

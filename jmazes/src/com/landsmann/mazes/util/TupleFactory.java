@@ -1,9 +1,9 @@
-package util;
+package com.landsmann.mazes.util;
 
 public class TupleFactory {
 
     private TupleFactory() {
-        // I'm a util class, please do not create me!
+        // I'm a com.landsmann.mazes.util class, please do not create me!
     }
 
     public static <X, Y> Tuple2 createTuple2(X x, Y y) {

@@ -1,3 +1,5 @@
+package com.landsmann.mazes;
+
 import java.util.HashMap;
 import java.util.Map;
 

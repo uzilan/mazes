@@ -1,4 +1,6 @@
-import util.ImageSaver;
+package com.landsmann.mazes;
+
+import com.landsmann.mazes.util.ImageSaver;
 
 public class AldousBroderDemo {
 

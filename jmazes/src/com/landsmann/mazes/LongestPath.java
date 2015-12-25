@@ -1,4 +1,6 @@
-import static util.TupleFactory.Tuple2;
+package com.landsmann.mazes;
+
+import static com.landsmann.mazes.util.TupleFactory.Tuple2;
 
 public class LongestPath {
 
