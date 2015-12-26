@@ -8,7 +8,7 @@ require 'aldous_broder'
   middle = grid[grid.rows/2, grid.columns/2]
   grid.distances = middle.distances
 
-  filname = "aldous_broder_%02d.png" % n
+  filname = "images/aldous_broder_%02d.png" % n
   grid.to_png.save(filname)
   puts "saved #{filname}"
 end
