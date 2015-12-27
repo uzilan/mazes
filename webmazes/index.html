@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maze-o-matic</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="padding-top: 10px">
+    <div class="row form-inline">
+        <div class="col-md-12 text-center">
+            <label for="mazetypes">Type:</label>
+            <select class="form-control" id="mazetypes"></select>
+            <label for="rows" style="padding-left: 10px;"> Rows:</label>
+            <input type="number" class="form-control" id="rows" value="40" style="width: 60px;">
+            <label for="columns" style="padding-left: 10px;"> Columns:</label>
+            <input type="number" class="form-control" id="columns" value="40" style="width: 60px;">
+            <div class="checkbox" style="padding-left: 10px;">
+                <label>
+                    <input type="checkbox" id="color"><span style="font-weight: bold"> Color</span>
+                </label>
+            </div>
+            <label style="padding-left: 10px;">
+                <button onclick="getMaze()" class="form-control">Draw</button>
+            </label>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 text-center" style="padding-top: 20px;">
+            <div id="maze">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $.ajax({url: "http://localhost:4567/mazetypes"})
+            .done(function (json) {
+                $.each(JSON.parse(json), function (key, value) {
+                    $('#mazetypes')
+                            .append($("<option></option>")
+                                    .attr("value", value)
+                                    .text(value));
+                });
+            });
+
+    function getMaze() {
+
+        var type = $("#mazetypes option:selected").text();
+        var rows = $("#rows").val();
+        var columns = $("#columns").val();
+        var color = $('#color').prop('checked')
+
+        var url = 'http://localhost:4567/maze?type=' + type +
+                '&rows=' + rows +
+                '&columns=' + columns +
+                '&color=' + color;
+
+        $("#maze").empty();
+
+        var img = $("<img />").attr('src', url)
+                .on('load', function () {
+                    if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+                        alert('broken image!');
+                    } else {
+                        $("#maze").append(img);
+                    }
+                });
+    }
+</script>
+
+</body>
+</html>
