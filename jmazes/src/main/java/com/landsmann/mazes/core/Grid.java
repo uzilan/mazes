@@ -175,4 +175,10 @@ public class Grid {
 
         return img;
     }
+
+    public List<Cell> deadends() {
+        return cells().stream()
+                .filter(c -> c.getLinks().size() == 1)
+                .collect(Collectors.toList());
+    }
 }

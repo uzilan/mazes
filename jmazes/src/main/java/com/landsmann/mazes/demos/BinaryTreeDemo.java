@@ -1,7 +1,10 @@
 package com.landsmann.mazes.demos;
 
 import com.landsmann.mazes.algorithms.BinaryTree;
+import com.landsmann.mazes.core.Cell;
 import com.landsmann.mazes.core.Grid;
+
+import java.util.List;
 
 public class BinaryTreeDemo {
 
@@ -10,5 +13,8 @@ public class BinaryTreeDemo {
         BinaryTree.on(grid);
 
         System.out.println(grid);
+
+        List<Cell> deadends = grid.deadends();
+        System.out.println(deadends.size() + " dead-ends");
     }
 }

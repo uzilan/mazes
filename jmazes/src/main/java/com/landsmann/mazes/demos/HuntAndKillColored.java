@@ -15,7 +15,7 @@ public class HuntAndKillColored {
         Cell middle = grid.get(grid.rows() / 2, grid.columns() / 2);
         grid.setDistances(middle.distances());
 
-        String filename = "jmazes/hunt and kill colored.png";
+        String filename = "images/hunt and kill colored.png";
         ImageSaver.saveImage(grid.toImage(), filename);
         System.out.println("saved " + filename);
     }

@@ -2,4 +2,4 @@
 out
 *.png
 node_modules
-target
+jmazes/target

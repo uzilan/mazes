@@ -12,7 +12,7 @@ public class WilsonsDemo {
         Grid grid = new Grid(20, 20);
         Wilsons.on(grid);
 
-        String filename = "jmazes/wilsons.png";
+        String filename = "images/wilsons.png";
         BufferedImage img = grid.toImage();
         ImageSaver.saveImage(img, filename);
         System.out.println("saved to " + filename);

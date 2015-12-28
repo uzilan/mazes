@@ -10,7 +10,7 @@ public class AldousBroderDemo {
         Grid grid = new Grid(20,20);
         AldousBroder.on(grid);
 
-        String filename = "jmazes/aldous_broder.png";
+        String filename = "images/aldous_broder.png";
         ImageSaver.saveImage(grid.toImage(), filename);
         System.out.println("saved " + filename);
     }

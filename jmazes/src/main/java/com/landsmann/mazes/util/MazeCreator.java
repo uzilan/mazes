@@ -14,7 +14,8 @@ public class MazeCreator {
         SIDEWINDER("Sidewinder"),
         ALDOUS_BRODER("Aldous Broder"),
         WILSONS("Wilsons"),
-        HUNT_AND_KILL("Hunt and kill");
+        HUNT_AND_KILL("Hunt and kill"),
+        RECURSIVE_BACKTRACKER("Recursive backtracker");
 
         private String name;
 
@@ -58,6 +59,9 @@ public class MazeCreator {
                 break;
             case HUNT_AND_KILL:
                 HuntAndKill.on(grid);
+                break;
+            case RECURSIVE_BACKTRACKER:
+                RecursiveBackTracker.on(grid);
                 break;
         }
 

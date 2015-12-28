@@ -59,7 +59,9 @@ public class UI extends JFrame {
             mazePanel.repaint();
 
             long millis = System.currentTimeMillis() - start;
-            statusPanel.setStatus(typeName + " took " + millis + " ms to generate");
+
+            String deadends = "Dead-ends: " + grid.deadends().size() + " (" + (grid.deadends().size() * 100 / grid.cells().size()) + "%)";
+            statusPanel.setStatus(typeName + " took " + millis + " ms to generate. " + deadends);
         });
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

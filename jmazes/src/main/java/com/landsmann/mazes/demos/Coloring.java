@@ -17,7 +17,7 @@ public class Coloring {
 
         grid.setDistances(start.distances());
 
-        String filename = "jmazes/colorized.png";
+        String filename = "images/colorized.png";
         BufferedImage img = grid.toImage();
         ImageSaver.saveImage(img, filename);
         System.out.println("saved to " + filename);
